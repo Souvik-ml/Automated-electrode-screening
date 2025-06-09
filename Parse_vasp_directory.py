@@ -3,7 +3,7 @@ import json
 from chgnet.utils import parse_vasp_dir
 
 # Base directory containing K/Li/Na → Materials → Structures
-base_dir = '/home/souvik/barc/all_comp_job'
+base_dir = 'path to base directory'
 final_dataset_dicts = []
 
 # Loop over first-level directories
@@ -27,7 +27,7 @@ for first_level in os.listdir(base_dir):
 
                             num_steps = len(dataset_dict["structure"])
 
-                            # ⛏ Every 5th step only
+                            # Every 5th step only
                             for i in range(0, num_steps, 5):
                                 final_data = {
                                     'structure': dataset_dict['structure'][i].as_dict(),
