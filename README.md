@@ -11,6 +11,7 @@ The fine tune of pre-trained CHGNet has done following the CHGNet github page. T
 https://github.com/CederGroupHub/chgnet/tree/main/examples
 
 All the materials has been extracted from the aNANt database. The link is below
+
 https://anant.mrc.iisc.ac.in/apps/2D
 
 
