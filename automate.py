@@ -11,11 +11,11 @@ import shutil
 import random
 from chgnet.model import CHGNet
 
-input_folder_path = '/home/souvik/barc/CHGNet_full_result/CHGNet_100/structures'
+input_folder_path = 'path to unit cell of 2D material structures'
 
 current_path = os.getcwd()
 
-chgnet_ft = CHGNet.from_file("/home/souvik/barc/CHGNet_50_3/com_vasp_job/05-12-2025/bestE_epoch498_e37_f71_s116_mNA.pth.tar")
+chgnet_ft = CHGNet.from_file("path to the best fine tuned model or tar file generated during the training of CHGNet model")
 
 adsorbed_structures_path = os.path.join(current_path, 'Adsorbed_structures')
 os.makedirs(adsorbed_structures_path, exist_ok=True)
@@ -48,7 +48,7 @@ for structure in os.listdir(input_folder_path):
     asf = AdsorbateSiteFinder(struct)
     sites = asf.find_adsorption_sites()
     adsorption_sites = {key:value for key, value in sites.items() if key!='all'}
-    # Iterate through the adsorbate sites (assuming adsorbate_sites is your dictionary)
+    # Iterate through the adsorbate sites
     for site_name, site_coords in adsorption_sites.items():
       for idx, site_coord in enumerate(site_coords):
         # Create a new structure by adding the adsorbate at the given site
@@ -100,7 +100,7 @@ for ion in ion_dirs:
           opt_result['final_structure'].to(fmt='cif', filename=os.path.join(opt_struct_path, filename))
 
 
-most_stable_adsorb_structures_path = '/home/souvik/barc/CHGNet_full_result/CHGNet_100/most_stable_adsorb_structures'
+most_stable_adsorb_structures_path = 'path to most_stable_adsorb_structures'
 os.makedirs(most_stable_adsorb_structures_path, exist_ok=True)
 
 op_struct_dict = {}
@@ -150,7 +150,7 @@ for dir in os.listdir(trajectory_path):
     print(f"The minimum energy file is {min_energy_file} with energy {min_energy_value}")
 
 # Save the op_struct_dict as a pickle file in the current directory
-op_struct_dict_path = '/home/souvik/barc/CHGNet_full_result/CHGNet_100/op_struct_dict.pickle'
+op_struct_dict_path = 'path to op_struct_dict.pickle'
 with open(op_struct_dict_path, 'wb') as f:
   pickle.dump(op_struct_dict, f)
 
@@ -158,7 +158,7 @@ print(f"'op_struct_dict' has been saved as a pickle file at: {op_struct_dict_pat
 
 
 # Create the folder for supercell structures
-supercell_path = '/home/souvik/barc/CHGNet_full_result/CHGNet_100/most_stable_adsorb_structures_supercell'
+supercell_path = 'path to most_stable_adsorb_structures_supercell'
 os.makedirs(supercell_path, exist_ok=True)
 
 # Loop through all files in most_stable_Li_adsorb_structures
@@ -202,10 +202,10 @@ print(f"Supercell structures saved in {supercell_path}")
 
 
 # Optimize the supercell structures with 0Li, 1Li, 2Li, 3Li, and 4Li
-optimized_supercell_path = '/home/souvik/barc/CHGNet_full_result/CHGNet_100/Optimized_supercell'
+optimized_supercell_path = 'path to Optimized_supercell'
 os.makedirs(optimized_supercell_path, exist_ok=True)
 
-opt_super_traj_path = '/home/souvik/barc/CHGNet_full_result/CHGNet_100/Optimized_supercell_trajectory'
+opt_super_traj_path = 'path to Optimized_supercell_trajectory'
 os.makedirs(opt_super_traj_path, exist_ok=True)
 
 for dir in os.listdir(supercell_path):
@@ -268,10 +268,10 @@ for dir in os.listdir(opt_super_traj_path):
 
 
 # Directory to save voltage dictionaries
-voltage_dic_save_path = '/home/souvik/barc/CHGNet_full_result/CHGNet_100/voltage_dic_save_folder'
+voltage_dic_save_path = 'path to voltage_dic_save_folder'
 os.makedirs(voltage_dic_save_path, exist_ok=True)
 
-# Reference energies for Li, Na, and K
+
 reference_energies = {
     "Li": -1.88,
     "Na": -1.29,
@@ -316,7 +316,7 @@ for element, reference_energy in reference_energies.items():
 
 ### Combine plot
 
-combine_voltage_plot_save_path = '/home/souvik/barc/CHGNet_full_result/CHGNet_100/voltage_plot_save_folder_combined'
+combine_voltage_plot_save_path = 'path to voltage_plot_save_folder_combined'
 os.makedirs(combine_voltage_plot_save_path, exist_ok=True)
 
 # Get list of materials common to all folders
