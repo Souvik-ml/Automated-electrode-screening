@@ -6,10 +6,8 @@ from chgnet.utils import parse_vasp_dir, read_json
 
 from chgnet.data.dataset import StructureData, get_train_val_test_loader
 
-#dataset_dict = parse_vasp_dir('/home/souvik/barc/CHGNet_50_3/com_vasp_job/Li/POSCAR_Se-Se-Ti/4', save_path='/home/souvik/barc/CHGNet_50_3/com_vasp_job/Li/POSCAR_Se-Se-Ti/4/chgnet_dataset.json')
-#print(dataset_dict)
-#dataset_dict = read_json("/home/souvik/barc/all_comp_job/final_chgnet_dataset.json")
-dataset_list = read_json("/home/souvik/barc/all_comp_job/final_chgnet_dataset_5.json")
+
+dataset_list = read_json("path to json file where the extracted structures have been stored")
 from chgnet.data.dataset import StructureData, get_train_val_test_loader
 structures = [Structure.from_dict(entry["structure"]) for entry in dataset_list]
 energies_per_atom = [entry["energy_per_atom"] for entry in dataset_list]
