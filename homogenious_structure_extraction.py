@@ -2,10 +2,10 @@ import os
 import shutil
 
 # Define the base directory where your subdirectories are located
-BASE_DIR = "/home/souvik/barc/database"
+BASE_DIR = "path to base directory"
 
-# Define the target directory where filtered structures will be copied
-DEST_DIR = "/home/souvik/barc/homo_genious_2D_mat"
+# Define the target directory where filtered structures will be stored
+DEST_DIR = "path to destination directory"
 os.makedirs(DEST_DIR, exist_ok=True)
 
 # Iterate through all items in the base directory
@@ -42,6 +42,3 @@ for subdir in os.listdir(BASE_DIR):
             print(f"Skipping directory (atom1 != atom2): {subdir_path}")
 
 print(f"Filtered structures have been copied to {DEST_DIR}.")
-
-
-
