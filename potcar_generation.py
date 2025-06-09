@@ -48,10 +48,10 @@ element_potcar_map = {
 }
 
 # Define the base directory where POTCAR files are stored
-potential_base_dir = '/home/souvik/POTENTIALS/POTENTIAL-PBE'
+potential_base_dir = 'path to POTENTIAL files'
 
 # Define the main path where the structure directories are located
-main_path = '/home/souvik/barc/CHGNet_50_3/most_stable_adsorb_structures_supercell'
+main_path = 'path to structures'
 
 # Loop through directories and subdirectories to find POSCAR files
 for folder in os.listdir(main_path):
