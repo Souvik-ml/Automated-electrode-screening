@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 
 # Directory containing the pickle files
-directory = '/home/souvik/barc/CHGNet_full_result/CHGNet_100/voltage_dic_save_folder/Li'
+directory = 'path to metal ion present in voltage_dic_save_folder'
 
 # List to store names of files that meet the condition
 valid_files = []
@@ -28,7 +28,7 @@ for filename in os.listdir(directory):
             print(filename)  # Print file name
             valid_files.append(filename)  # Save file name
 
-# Optionally, save the list of valid file names to a file
+# Save the list of valid file names to a file
 with open('valid_pickle_files_Li.txt', 'w') as f:
     for name in valid_files:
         f.write(name + '\n')
