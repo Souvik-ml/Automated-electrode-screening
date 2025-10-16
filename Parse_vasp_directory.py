@@ -49,5 +49,5 @@ final_dataset_path = os.path.join(base_dir, "final_chgnet_dataset_5.json")
 with open(final_dataset_path, "w") as f:
     json.dump(final_dataset_dicts, f)
 
-print(f"✅ Aggregated dataset saved to {final_dataset_path}")
+print(f"Aggregated dataset saved to {final_dataset_path}")
 
